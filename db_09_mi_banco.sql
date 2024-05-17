@@ -1,0 +1,288 @@
+DROP TABLE IF EXISTS transferencias;
+DROP TABLE IF EXISTS cuentas;
+
+CREATE TABLE cuentas (
+	id INT PRIMARY KEY, 
+	saldo DECIMAL CHECK (saldo >= 0) 
+);
+
+INSERT INTO CUENTAS (id, saldo) VALUES 
+(1, 10000),
+(2, 20000);
+
+INSERT INTO CUENTAS (id, saldo) VALUES 
+(3, 50000);
+
+CREATE TABLE transferencias(
+	id SERIAL PRIMARY KEY, 
+	fecha DATE DEFAULT CURRENT_DATE, 
+	monto DECIMAL,
+	cuenta_origen INT, 
+	cuenta_destino INT,
+	FOREIGN KEY(cuenta_origen) REFERENCES cuentas(id) ON DELETE CASCADE,
+	FOREIGN KEY(cuenta_destino) REFERENCES cuentas(id) ON DELETE CASCADE
+);
+
+-- TRANSACCIÓN
+
+--1 De cuenta 1 a la cuenta 2
+BEGIN;
+
+UPDATE CUENTAS
+SET SALDO = SALDO - 100
+WHERE ID = 1;
+
+UPDATE CUENTAS
+SET SALDO = SALDO + 100
+WHERE ID = 2;
+
+INSERT INTO TRANSFERENCIAS (MONTO, cuenta_origen, cuenta_destino)
+VALUES (100, 1, 2);
+
+COMMIT;
+	
+--2 De cuenta 1 a la cuenta 2
+BEGIN;
+
+UPDATE CUENTAS
+SET SALDO = SALDO - 200
+WHERE ID = 1;
+
+UPDATE CUENTAS
+SET SALDO = SALDO + 200
+WHERE ID = 2;
+
+INSERT INTO TRANSFERENCIAS (MONTO, cuenta_origen, cuenta_destino)
+VALUES (200, 1, 2);
+
+COMMIT;
+
+
+--3 De cuenta 1 a la cuenta 2
+BEGIN;
+
+UPDATE CUENTAS
+SET SALDO = SALDO - 200
+WHERE ID = 1;
+
+UPDATE CUENTAS
+SET SALDO = SALDO + 200
+WHERE ID = 2;
+
+INSERT INTO TRANSFERENCIAS (MONTO, cuenta_origen, cuenta_destino)
+VALUES (200, 1, 2);
+
+COMMIT;
+
+--4 De cuenta 1 a la cuenta 2
+BEGIN;
+
+UPDATE CUENTAS
+SET SALDO = SALDO - 200
+WHERE ID = 1;
+
+UPDATE CUENTAS
+SET SALDO = SALDO + 200
+WHERE ID = 2;
+
+INSERT INTO TRANSFERENCIAS (MONTO, cuenta_origen, cuenta_destino)
+VALUES (200, 1, 2);
+
+COMMIT;
+
+--5 De cuenta 1 a la cuenta 2
+BEGIN;
+
+UPDATE CUENTAS
+SET SALDO = SALDO - 200
+WHERE ID = 1;
+
+UPDATE CUENTAS
+SET SALDO = SALDO + 200
+WHERE ID = 2;
+
+INSERT INTO TRANSFERENCIAS (MONTO, cuenta_origen, cuenta_destino)
+VALUES (200, 1, 2);
+
+COMMIT;
+
+--6 De cuenta 1 a la cuenta 2
+BEGIN;
+
+UPDATE CUENTAS
+SET SALDO = SALDO - 200
+WHERE ID = 1;
+
+UPDATE CUENTAS
+SET SALDO = SALDO + 200
+WHERE ID = 2;
+
+INSERT INTO TRANSFERENCIAS (MONTO, cuenta_origen, cuenta_destino)
+VALUES (200, 1, 2);
+
+COMMIT;
+
+--7 De cuenta 1 a la cuenta 2
+BEGIN;
+
+UPDATE CUENTAS
+SET SALDO = SALDO - 200
+WHERE ID = 1;
+
+UPDATE CUENTAS
+SET SALDO = SALDO + 200
+WHERE ID = 2;
+
+INSERT INTO TRANSFERENCIAS (MONTO, cuenta_origen, cuenta_destino)
+VALUES (200, 1, 2);
+
+COMMIT;
+
+--8 De cuenta 1 a la cuenta 2
+BEGIN;
+
+UPDATE CUENTAS
+SET SALDO = SALDO - 200
+WHERE ID = 1;
+
+UPDATE CUENTAS
+SET SALDO = SALDO + 200
+WHERE ID = 2;
+
+INSERT INTO TRANSFERENCIAS (MONTO, cuenta_origen, cuenta_destino)
+VALUES (200, 1, 2);
+
+COMMIT;
+
+--9 De cuenta 1 a la cuenta 2
+BEGIN;
+
+UPDATE CUENTAS
+SET SALDO = SALDO - 200
+WHERE ID = 1;
+
+UPDATE CUENTAS
+SET SALDO = SALDO + 200
+WHERE ID = 2;
+
+INSERT INTO TRANSFERENCIAS (MONTO, cuenta_origen, cuenta_destino)
+VALUES (200, 1, 2);
+
+COMMIT;
+
+--10 De cuenta 1 a la cuenta 2
+BEGIN;
+
+UPDATE CUENTAS
+SET SALDO = SALDO - 200
+WHERE ID = 1;
+
+UPDATE CUENTAS
+SET SALDO = SALDO + 200
+WHERE ID = 2;
+
+INSERT INTO TRANSFERENCIAS (MONTO, cuenta_origen, cuenta_destino)
+VALUES (200, 1, 2);
+
+COMMIT;
+
+--11 De cuenta 1 a la cuenta 2
+BEGIN;
+
+UPDATE CUENTAS
+SET SALDO = SALDO - 200
+WHERE ID = 1;
+
+UPDATE CUENTAS
+SET SALDO = SALDO + 200
+WHERE ID = 2;
+
+INSERT INTO TRANSFERENCIAS (MONTO, cuenta_origen, cuenta_destino)
+VALUES (200, 1, 2);
+
+COMMIT;
+
+--12 De cuenta 1 a la cuenta 2
+BEGIN;
+
+UPDATE CUENTAS
+SET SALDO = SALDO - 200
+WHERE ID = 1;
+
+UPDATE CUENTAS
+SET SALDO = SALDO + 200
+WHERE ID = 2;
+
+INSERT INTO TRANSFERENCIAS (MONTO, cuenta_origen, cuenta_destino)
+VALUES (200, 1, 2);
+
+COMMIT;
+
+--13 De cuenta 1 a la cuenta 2
+BEGIN;
+
+UPDATE CUENTAS
+SET SALDO = SALDO - 200
+WHERE ID = 1;
+
+UPDATE CUENTAS
+SET SALDO = SALDO + 200
+WHERE ID = 2;
+
+INSERT INTO TRANSFERENCIAS (MONTO, cuenta_origen, cuenta_destino)
+VALUES (200, 1, 2);
+
+COMMIT;
+
+--14 De cuenta 1 a la cuenta 2
+BEGIN;
+
+UPDATE CUENTAS
+SET SALDO = SALDO - 200
+WHERE ID = 1;
+
+UPDATE CUENTAS
+SET SALDO = SALDO + 200
+WHERE ID = 2;
+
+INSERT INTO TRANSFERENCIAS (MONTO, cuenta_origen, cuenta_destino)
+VALUES (200, 1, 2);
+
+COMMIT;
+
+
+
+--1 De cuenta 3 a la cuenta 2
+BEGIN;
+
+UPDATE CUENTAS
+SET SALDO = SALDO - 200
+WHERE ID = 3;
+
+UPDATE CUENTAS
+SET SALDO = SALDO + 200
+WHERE ID = 2;
+
+INSERT INTO TRANSFERENCIAS (MONTO, cuenta_origen, cuenta_destino)
+VALUES (200, 3, 2);
+
+COMMIT;
+
+--2 De cuenta 3 a la cuenta 1
+BEGIN;
+
+UPDATE CUENTAS
+SET SALDO = SALDO - 50
+WHERE ID = 3;
+
+UPDATE CUENTAS
+SET SALDO = SALDO + 50
+WHERE ID = 1;
+
+INSERT INTO TRANSFERENCIAS (MONTO, cuenta_origen, cuenta_destino)
+VALUES (50, 3, 1);
+
+COMMIT;
+
+SELECT * FROM TRANSFERENCIAS;
+SELECT * FROM CUENTAS;
